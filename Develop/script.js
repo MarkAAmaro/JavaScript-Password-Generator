@@ -9,7 +9,12 @@ function writePassword() {
   passwordText.value = password;
 
 }
-function writePassword() 
+var uppercasearray =  ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"]
+var lowercasearray = ["a","b","c","d","e"]
+var numbersarray = [1,2,3,4,5,6,7,8,9]
+var symbolsarray = ["!","@","#","$","&"]
+
+function  generatePassword() {
   var length = parseInt(prompt("How long would you like your password to be? (8-128 characters)"));
 
   if (isNaN(length) || length < 8 || length > 128) {
@@ -27,7 +32,23 @@ if (!uppercase && !lowercase && !numbers && !symbols) {
   return;
 }
 
-function generatePassword 
+var possiblecharacters = []
+if (uppercase === true){
+possiblecharacters = possiblecharacters.concat (uppercasearray)
+
+}
+if (lowercase === true){
+possiblecharacters = possiblecharacters.concat (lowercasearray)
+}
+if (numbers === true){
+  possiblecharacters = possiblecharacters.concat (numbersarray)
+}
+
+if (symbols === true){
+  possiblecharacters = possiblecharacters.concat (symbolsarray)
+}
+console.log(possiblecharacters)
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
