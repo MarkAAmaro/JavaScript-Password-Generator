@@ -28,5 +28,6 @@ The generated password will be displayed in the #password input box.
 
 ![img](./Assets/generatedpassword.png)
 
-
+Site Link
+https://markaamaro.github.io/JavaScript-Password-Generator/
 
