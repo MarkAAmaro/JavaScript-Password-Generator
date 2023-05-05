@@ -7,8 +7,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
+
 var uppercasearray =  ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"]
 var lowercasearray = ["a","b","c","d","e"]
 var numbersarray = [1,2,3,4,5,6,7,8,9]
@@ -21,37 +21,42 @@ function  generatePassword() {
     alert("Password length must be a number between 8 and 128.");
     return;
   }
-/*added variables to confirm types*/
-var uppercase = confirm("Would you like to include uppercase letters?");
-var lowercase = confirm("Would you like to include lowercase letters?");
-var numbers = confirm("Would you like to include numbers?");
-var symbols = confirm("Would you like to include symbols?");
-//if 
-if (!uppercase && !lowercase && !numbers && !symbols) {
-  alert("At least one character type must be selected.");
-  return;
-}
 
-var possiblecharacters = []
-if (uppercase === true){
-possiblecharacters = possiblecharacters.concat (uppercasearray)
+  /*added variables to confirm types*/
+  var uppercase = confirm("Would you like to include uppercase letters?");
+  var lowercase = confirm("Would you like to include lowercase letters?");
+  var numbers = confirm("Would you like to include numbers?");
+  var symbols = confirm("Would you like to include symbols?");
 
-}
-if (lowercase === true){
-possiblecharacters = possiblecharacters.concat (lowercasearray)
-}
-if (numbers === true){
-  possiblecharacters = possiblecharacters.concat (numbersarray)
-}
+  //if 
+  if (!uppercase && !lowercase && !numbers && !symbols) {
+    alert("At least one character type must be selected.");
+    return;
+  }
 
-if (symbols === true){
-  possiblecharacters = possiblecharacters.concat (symbolsarray)
-}
-console.log(possiblecharacters)
+  var possiblecharacters = []
+  if (uppercase === true){
+    possiblecharacters = possiblecharacters.concat(uppercasearray)
+  }
+  if (lowercase === true){
+    possiblecharacters = possiblecharacters.concat(lowercasearray)
+  }
+  if (numbers === true){
+    possiblecharacters = possiblecharacters.concat(numbersarray)
+  }
+  if (symbols === true){
+    possiblecharacters = possiblecharacters.concat(symbolsarray)
+  }
+
+  var password = [];
+  for (var i = 0; i < length; i++) {
+    var randomIndex = Math.floor(Math.random() * possiblecharacters.length);
+    var randomChar = possiblecharacters[randomIndex];
+    password.push(randomChar);
+  }
+
+  return password.join('');
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
